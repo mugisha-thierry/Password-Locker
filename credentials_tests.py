@@ -78,7 +78,17 @@ class TestCredentials(unittest.TestCase):
         """
         self.assertEqual(Credentials.display_credentials(),Credentials.list_of_credentials)
 
-    # def test_to_logout(self):
+    def test_credentials_exists(self):
+        '''
+        test to check if we can return a Boolean  if we cannot find the credential.
+        '''
+        self.new_credentials.save_this_credentials()
+        second_credential = Credentials("facebook","Ketsia-a","high123")
+        second_credential.save_this_credentials()
+        
+        contact_exists = Contact.contact_exist("0711223344")
+
+        self.assertTrue(contact_exists)
 
 
 
