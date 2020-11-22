@@ -3,9 +3,9 @@ class Account :
     list_of_accounts = []
 
 
-    def __init__(self,user_name,password):
-        self.user_name = user_name
-        self.password = password
+    def __init__(self,account_user_name,account_password):
+        self.account_user_name = account_user_name
+        self.account_password = account_password
 
     def save_this_account(self):
         Account.list_of_accounts.append(self)
@@ -20,13 +20,13 @@ class Account :
 
 
     @classmethod
-    def check_account(cls,username, password):
+    def check_account(cls,account_username, account_password):
         """
         method to check whether the account is our account_list or not
         """
         real_account = ""
         for account in Account.list_of_accounts:
-            if(account.user_name == user_name and account.password == password):
+            if(account.account_user_name == account_user_name and account.account_password == account_password):
                 real_account == account.user_name
         return real_account
 
