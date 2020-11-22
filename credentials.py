@@ -39,3 +39,18 @@ class Credentials:
         This will display all credentials we have in our credential list
         """
         return cls.list_of_credentials
+
+    @classmethod
+    def credentials_exist(cls,name_of_social_media):
+        '''
+        Method that checks if a contact exists from the contact list.
+        Args:
+            number: Phone number to search if it exists
+        Returns :
+            Boolean: True or false depending if the contact exists
+        '''
+        for credentials in cls.list_of_credentials:
+            if credentials.social_media == name_of_social_media:
+                    return True
+
+        return False    
