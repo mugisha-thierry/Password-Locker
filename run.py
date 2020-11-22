@@ -56,13 +56,13 @@ def delete_credential(credentials):
     """
     Function to delete credentials
     """
-    credential.delete_credentials()
+    credentials.delete_credentials()
 
 def find_credential(social_media):
     """
     Function that finds in credential socialmedia and returns the credentials that matches that socialmedia.
     """
-    return Credential.find_credentials(social_media)
+    return Credentials.find_credentials(social_media)
 
 def credential_exists(social_media):
     """
@@ -131,7 +131,7 @@ def main():
     while True:
         print("Use these short codes:")
         print('-'*30)
-        print("Use these short codes:\n  -Save already existing credentials: SC\n  -Create new credentials:CC\n  -Dispaly credentials: DC\n  -Find a credential saved credentials using social media name : FD\n  -Delete credential: RC\n  -Exit the application:EX\n")
+        print("Use these short codes:\n  -Save already existing credentials: SC\n  -Create new credentials:CC\n  -Dispaly credentials: DC\n  -Find a credential saved credentials using social media name : FC\n  -Delete credential: RC\n  -Exit the application:EX\n")
         short_code = input().lower().strip()
 
         if short_code == 'sc':
@@ -192,8 +192,49 @@ def main():
                 print("You dont seem to have any contacts saved yet")
                 print('\n')     
 
-        elif short_code == 'fd':
-                       
+        elif short_code == 'fc':
+            print("Enter the social media name you want to search for")
+            print('\n')
+            search_name = input()
+            if credential_exists(search_name):
+                search_social_media = find_credential(search_name)
+                print(f"username:{search_social_media.user_name}\n password: {search_social_media.password} ")
+                
+            else:
+                print("That social media does not exist")
+
+            print('*'*50)    
+
+            print('\n')
+
+
+
+
+
+        elif short_code == 'rc':
+            print('\n')
+            print("Enter the name of social media you want to delete it's credentials")
+            search_name = input()
+            if credential_exists(search_name):
+                search_social_media = find_credential(search_name)
+                search_social_media.delete_credential()
+                print(f"{search_social_media.social_media} credentials were succefully deleted")
+
+            else:
+                print("That social media does not exist")
+    
+
+        elif short_code == "ex":
+            print("Bye see you next time **")
+            break
+
+        else:
+            print("I really didn't get that. Please use the short codes")        
+
+                
+                  
+
+
             
 
 
