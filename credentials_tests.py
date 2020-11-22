@@ -85,10 +85,10 @@ class TestCredentials(unittest.TestCase):
         self.new_credentials.save_this_credentials()
         second_credential = Credentials("facebook","Ketsia-a","high123")
         second_credential.save_this_credentials()
-        
-        contact_exists = Contact.contact_exist("0711223344")
 
-        self.assertTrue(contact_exists)
+        credentials_exists = Credentials.credentials_exist("facebook")
+
+        self.assertTrue(credentials_exists)
 
 
 
