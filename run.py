@@ -52,3 +52,32 @@ def password_creator():
     """
     return Credentials.password_generate()        
 
+def delete_credential(credentials):
+    """
+    Function to delete credentials
+    """
+    credential.delete_credentials()
+
+def find_credential(social_media):
+    """
+    Function that finds in credential socialmedia and returns the credentials that matches that socialmedia.
+    """
+    return Credential.find_credentials(social_media)
+
+def credential_exists(social_media):
+    """
+    Function that checks if a credential exists and return true or false.
+    """
+    return Credentials.credentials_exist(social_media)
+
+
+
+
+
+def main():
+    print("Hello Welcome to your contact list. What is your name?")
+
+
+
+if __name__ == '__main__':
+    main()
