@@ -7,8 +7,8 @@ class TestAccount(unittest.TestCase):
         self.new_account = Account("mugisha-thierry","hakiza123")
 
     def test_init(self):
-        self.assertEqual(self.new_account.user_name,"mugisha-thierry")
-        self.assertEqual(self.new_account.password,"hakiza123") 
+        self.assertEqual(self.new_account.account_user_name,"mugisha-thierry")
+        self.assertEqual(self.new_account.account_password,"hakiza123") 
 
     def test_save_account(self):
         self.new_account.save_this_account()
