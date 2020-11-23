@@ -2,6 +2,9 @@ import unittest
 from credentials import Credentials
 
 class TestCredentials(unittest.TestCase):
+    """
+    Test class that defines test cases for the credentials class behaviours.
+    """
     def setUp(self):
         """
         Set up method to run before each test cases.
@@ -47,7 +50,6 @@ class TestCredentials(unittest.TestCase):
         self.new_credentials.save_this_credentials()
         second_credential = Credentials("facebook","Ketsia-a","high123")
         second_credential.save_this_credentials()
-        # self.assertEqual(len(Credentials.list_of_credentials),2)
         self.new_credentials.delete_credentials()
         self.assertEqual(len(Credentials.list_of_credentials),1)
 
@@ -58,7 +60,6 @@ class TestCredentials(unittest.TestCase):
         self.new_credentials.save_this_credentials()
         second_credential = Credentials("facebook","Ketsia-a","high123")
         second_credential.save_this_credentials()
-        # self.assertEqual(len(Credentials.list_of_credentials),2)
         self.new_credentials.delete_credentials()
 
         found_credentials = Credentials.find_credentials("facebook")
@@ -91,10 +92,10 @@ class TestCredentials(unittest.TestCase):
         self.assertTrue(credentials_exists)
 
 
-
-
-
     def tearDown(second_account): 
+        """
+        tearDown method that does clean up after each test case has run.
+        """
         Credentials.list_of_credentials= []   
 
 if __name__ == '__main__':
