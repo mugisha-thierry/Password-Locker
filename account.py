@@ -1,13 +1,22 @@
 class Account :
+    """
+    Class that generates new instances of accounts
+    """
 
-    list_of_accounts = []
+    list_of_accounts = [] # Empty account list
 
 
     def __init__(self,account_user_name,account_password):
+        """
+        __init__ method that helps us define properties for our objects.
+        """
         self.account_user_name = account_user_name
         self.account_password = account_password
 
     def save_this_account(self):
+        """
+        save_this_account method saves account objects into account_list
+        """
         Account.list_of_accounts.append(self)
 
     def delete_account(self):
@@ -34,4 +43,7 @@ class Account :
 
     @classmethod
     def display_account(cls):
-        return cls.list_of_accounts         
+        """
+        method that displays all signup accounts 
+        """
+        return cls.list_of_accounts 
