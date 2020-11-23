@@ -2,6 +2,7 @@
 from account import Account
 from credentials import Credentials
 
+
 def create_account(account_user_name,account_password):
     """
     Function to create a new account
@@ -14,12 +15,6 @@ def save_account(account):
     Function to save contact
     '''
     account.save_this_account()
-
-def display_accounts(account):
-    """
-    Function to display saved account
-    """
-    return Account.display_account()
 
 def delete_accounts(account):
     """
@@ -72,8 +67,6 @@ def credential_exists(social_media):
 
 
 
-
-
 def main():
     print('='*80)
     print('*' *80)
@@ -88,6 +81,7 @@ def main():
     print('\n')
     print("-Create New account: CNA\n-Login to your account: LG  \n")
     short_code = input("").lower().strip()
+    
     if short_code == "cna":
         print('\n')
         print("Sign Up")
@@ -99,7 +93,6 @@ def main():
             print("-Type your password: TP\n-Generate random Password: RP \n")
             option = input().lower().strip()
             if option == 'tp':
-                # print("Enter password of your choice")
                 account_password = input("Enter password of your choice\n")
                 break
 
@@ -126,12 +119,29 @@ def main():
         print("*"*65)
         print('\n')
 
-    # elif short_code == "lg":
+
+    elif short_code == "lg" :
+        username = input("username: ")
+        password = input("password: ")
+        print("\n")
+        print("You don't seem to have a signed up account,\n please try to start again and sign up. \n Byee ****")
+        print("*"*65)
+        print("\n")
+        import sys
+        sys.exit() 
+
+        
+    else:
+        print("Use specified short Codes!!!!\n Byeee****")
+        print("\n")
+        import sys
+        sys.exit()
+
 
     while True:
         print("Use these short codes:")
-        print('-'*30)
-        print("Use these short codes:\n  -Save already existing credentials: SC\n  -Create new credentials:CC\n  -Dispaly credentials: DC\n  -Find a credential saved credentials using social media name : FC\n  -Delete credential: RC\n  -Exit the application:EX\n")
+        print('-'*40)
+        print("  -Save already existing credentials: SC\n  -Create new credentials:CC\n  -Dispaly credentials: DC\n  -Find a credential saved credentials using social media name : FC\n  -Delete credential: RC\n  -Exit the application:EX\n")
         short_code = input().lower().strip()
 
         if short_code == 'sc':
@@ -157,7 +167,6 @@ def main():
             print("-Type your password: TP\n-Generate random Password: RP \n")
             option = input().lower().strip()
             if option == 'tp':
-                # print("Enter password of your choice")
                 password = input("Enter password of your choice\n")
                 
             elif option == 'rp':
@@ -180,11 +189,13 @@ def main():
             print("*"*65)    
         elif short_code == 'dc':
             if display_all_credential():
-                print("Here is a list of all your credentials") 
+                print("Here is a list of all your credentials")
+                print('-'*40) 
                 print('\n')
 
                 for credentials in display_all_credential():   
                     print(f"Social media: {credentials.social_media}       username: {credentials.user_name}     password: {credentials.password}")
+                print("*"*70)    
                 print('\n')
 
             else:
@@ -214,14 +225,19 @@ def main():
         elif short_code == 'rc':
             print('\n')
             print("Enter the name of social media you want to delete it's credentials")
+            print('\n')
             search_name = input()
             if credential_exists(search_name):
                 search_social_media = find_credential(search_name)
-                search_social_media.delete_credential()
+                search_social_media.delete_credentials()
                 print(f"{search_social_media.social_media} credentials were succefully deleted")
+                print('*'*50)
+                print('\n')
 
             else:
                 print("That social media does not exist")
+                print('*'*50)
+                print('\n')       
     
 
         elif short_code == "ex":
@@ -232,14 +248,6 @@ def main():
             print("I really didn't get that. Please use the short codes")        
 
                 
-                  
-
-
-            
-
-
-                    
-
 
 if __name__ == '__main__':
     main()
