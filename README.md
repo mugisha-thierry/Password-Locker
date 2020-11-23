@@ -9,6 +9,9 @@ Mugisha Thierry student from Moringa School
 ### Technologies Used
 - Python
 ---
+### Setup instraction
+Clone this app and open it using terminal by this code: ./run.py
+
 ### CONTACT INFORMATION
 ---
 - INSTAGRAM: [mugisha_thierry_rwanda](https://www.instagram.com)
